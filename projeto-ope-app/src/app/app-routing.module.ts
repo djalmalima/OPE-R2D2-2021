@@ -12,9 +12,14 @@ import { CadastrarFonecedorComponent } from './login/home/fornecedores/cadastrar
 import { EditarFonecedorComponent } from './login/home/fornecedores/editar-fonecedor/editar-fonecedor.component';
 import { FornecedoresComponent } from './login/home/fornecedores/fornecedores.component';
 import { HomeComponent } from './login/home/home.component';
+import { EntradaComponent } from './login/home/movimentacoes/entrada/entrada.component';
+import { InventarioComponent } from './login/home/movimentacoes/inventario/inventario.component';
+import { SaidaComponent } from './login/home/movimentacoes/saida/saida.component';
 import { CadastrarProdutoComponent } from './login/home/produtos/cadastrar-produto/cadastrar-produto.component';
 import { EditarProdutoComponent } from './login/home/produtos/editar-produto/editar-produto.component';
 import { ProdutosComponent } from './login/home/produtos/produtos.component';
+import { FichaProdutoComponent } from './login/home/relatorios/mov-produto/ficha-produto/ficha-produto.component';
+import { MovProdutoComponent } from './login/home/relatorios/mov-produto/mov-produto.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
@@ -33,6 +38,10 @@ const routes: Routes = [
     { path: 'produtos' , component: ProdutosComponent },
     { path: 'cadastrarproduto' , component: CadastrarProdutoComponent },
     { path: 'cadatrarfornecedor' , component: CadastrarFonecedorComponent },
+    {path: 'entradaproduto', component: EntradaComponent},
+    {path: 'saidaproduto', component: SaidaComponent},
+    {path: 'inventario', component: InventarioComponent },
+    {path: 'fichaestoque', component: MovProdutoComponent }
 
   ]}
 ];

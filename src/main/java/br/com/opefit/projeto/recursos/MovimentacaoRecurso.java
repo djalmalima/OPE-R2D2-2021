@@ -16,50 +16,63 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.opefit.projeto.entidades.Produto;
-import br.com.opefit.projeto.servicos.ProdutoServico;
+import br.com.opefit.projeto.entidades.Movimentacao;
+import br.com.opefit.projeto.servicos.MovimentacaoServico;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(value = "/produtos")
-public class ProdutoRecurso {	
+@RequestMapping(value = "/movimentacao")
+public class MovimentacaoRecurso {	
 	
 	@Autowired
-	private ProdutoServico produtoServico;
+	private MovimentacaoServico movimentacaoServico;
 			
 	
 	@GetMapping
-	public ResponseEntity<List<Produto>> findAll(){						
-		List<Produto> list = produtoServico.findAll();
+	public ResponseEntity<List<Movimentacao>> findAll(){						
+		List<Movimentacao> list = movimentacaoServico.findAll();	
+		
 		return ResponseEntity.ok().body(list);
 	}
 	
+	
+	
+	@GetMapping(value = "produto/{id}")
+	public ResponseEntity<List<Movimentacao>> findMovProdutobyId(@PathVariable Long id) {
+		
+		List<Movimentacao> list1 = movimentacaoServico.findMovProdutobyId(id);
+		
+		return ResponseEntity.ok().body(list1);
+	}
+	
+	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Produto> findById(@PathVariable Long id) {
-		Produto obj = produtoServico.findById(id);
+	public ResponseEntity<Movimentacao> findById(@PathVariable Long id) {
+		Movimentacao obj = movimentacaoServico.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@PostMapping
-	public ResponseEntity<Produto> insert(@RequestBody Produto obj) {
-		obj = produtoServico.insert(obj);
+	public ResponseEntity<Movimentacao> insert(@RequestBody Movimentacao obj) {
+		obj = movimentacaoServico.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
-	}
+	}	
+	
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		produtoServico.delete(id);
+		movimentacaoServico.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 
-	
-	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Produto> update(@PathVariable Long id, @RequestBody Produto obj) {
-		obj = produtoServico.updateProduto(id, obj);
+	public ResponseEntity<Movimentacao> update(@PathVariable Long id, @RequestBody Movimentacao obj) {
+		obj = movimentacaoServico.updateMovimentacao(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	
 
 
 }

@@ -29,6 +29,12 @@ import { EditarFonecedorComponent } from './login/home/fornecedores/editar-fonec
 import { DeletarFornecedorComponent } from './login/home/fornecedores/deletar-fornecedor/deletar-fornecedor.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { EntradaComponent } from './login/home/movimentacoes/entrada/entrada.component';
+import { SaidaComponent } from './login/home/movimentacoes/saida/saida.component';
+import { MovProdutoComponent } from './login/home/relatorios/mov-produto/mov-produto.component';
+import { FichaProdutoComponent } from './login/home/relatorios/mov-produto/ficha-produto/ficha-produto.component';
+import { InventarioComponent } from './login/home/movimentacoes/inventario/inventario.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +59,12 @@ import { CommonModule } from '@angular/common';
     FornecedoresComponent,
     CadastrarFonecedorComponent,
     EditarFonecedorComponent,
-    DeletarFornecedorComponent
+    DeletarFornecedorComponent,
+    EntradaComponent,
+    SaidaComponent,
+    MovProdutoComponent,
+    FichaProdutoComponent,
+    InventarioComponent
   ],
   imports: [
     CommonModule,

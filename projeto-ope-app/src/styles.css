@@ -49,6 +49,23 @@ body{
 
 h3{
     font-family: 'Black Han Sans', sans-serif;
-    font-size: 35px;
-    text-shadow: 2px 2px rgb(174, 227, 248)
+
+    font-size: 30px;
+}
+
+.btn-delete{
+    margin-top: 22px;
+}
+
+.label_produto{
+    font-size: 13px;
+}
+
+.btn-sem-cor{
+    background-color:white;
+    border: none;
+}
+
+.btn-sem-cor:hover{
+    background-color: rgba(180,204,241,255)
 }

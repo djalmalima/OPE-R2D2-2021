@@ -1,0 +1,42 @@
+.entrada{
+    background-color: rgba(73, 250, 132, 0.6);
+}
+
+.saida{
+    background-color: rgb(240, 140, 140,0.6);
+}
+.inventario{
+    background-color: rgb(133, 133, 212,0.6);
+}
+
+.home-tabela{
+    background-color: rgb(213, 213, 245);
+    padding: 10px 20px;
+    border: 1px solid rgb(100, 99, 99);
+    border-radius: 8px;
+}
+
+.sem-movimento{
+    text-align: center;
+    margin-top: 50px;    
+    width: 60%;    
+}
+
+.legenda{
+    position: fixed;
+    top: 40%;
+    left: 2%;
+    text-align: center;
+
+}
+
+.borderTop{
+    border-top: 1px solid black;
+}
+
+p{
+    padding: 2px 10px;   
+    border: 1px solid;
+    margin: 0px;
+    border-top: none;
+}

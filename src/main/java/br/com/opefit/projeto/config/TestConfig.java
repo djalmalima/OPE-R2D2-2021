@@ -23,6 +23,7 @@ public class TestConfig implements CommandLineRunner {
 	@Autowired
 	private FornecedorRepositorio fornecedorRepositorio;
 	
+	
 	@Autowired
 	private DepartamentoRepositorio departamentoRepositorio;
 	
@@ -31,9 +32,12 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ProdutoRepositorio produtoRepositorio;
-
+	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
+		
 		
 		Departamento d1 = new Departamento(null, "Fiscal");
 		Departamento d2 = new Departamento(null, "Financeiro");
@@ -62,6 +66,15 @@ public class TestConfig implements CommandLineRunner {
 		Fornecedor f3 = new Fornecedor(null, true, "Fan Industria", "CNPJ", "678678678000198", "1166665555" ,"fan@gmail.com");
 		
 		fornecedorRepositorio.saveAll(Arrays.asList(f1,f2,f3));
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}	

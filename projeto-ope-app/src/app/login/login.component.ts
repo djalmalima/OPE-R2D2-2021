@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
   
   data = new Date();
   senhaInvalida = false;
@@ -22,10 +22,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
     ) { }
   
-  ngOnInit(): void {
-    console.log(this.data.getHours())
-  }
-  
+ 
   acessar(){
     if( this.formulario.value.nome == 'gerente' ||  this.formulario.value.senha == '123456' ){
       let texto = this.boasVindas(this.data.getHours())

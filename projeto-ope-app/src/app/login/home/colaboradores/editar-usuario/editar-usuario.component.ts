@@ -40,7 +40,7 @@ export class EditarUsuarioComponent implements OnInit {
       this.route.params.subscribe((parametrs: Params) => {
 
         this.service.getUsuarioById(parametrs.id).subscribe(
-          (resposta) => { this.usuario = resposta,
+          (resposta) => { this.usuario = resposta, console.log(resposta),
             this.serviceDepartamento.getDepartamentoById(resposta.departamento.id).subscribe(
               (resposta) =>  {depart = resposta, 
                 this.id = parametrs.id,
@@ -48,7 +48,8 @@ export class EditarUsuarioComponent implements OnInit {
                 this.formulario.controls.ativo.setValue(this.usuario.ativo),
                 this.formulario.controls.cargo.setValue(this.usuario.cargo),
                 this.formulario.controls.telefone.setValue(this.usuario.telefone),
-                this.formulario.controls.departamento.setValue(depart.id),               
+                this.formulario.controls.departamento.setValue(depart.id),   
+                        
                 this.serviceDepartamento.getDepartamentos().subscribe(
                   (resposta) => this.lista = resposta
                   )           

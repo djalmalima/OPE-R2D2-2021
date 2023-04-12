@@ -1,0 +1,28 @@
+<div class="container" >    
+    <form [formGroup]="formulario" > 
+        <h3 class="text-center">Informe a descrição ou ID do produto</h3>
+        <div class="d-flex justify-content-center ">
+            <div class="row">   
+                <div class="form-group">                                      
+                    <div class="col-12">                         
+                        <input  placeholder="Descrição ou ID" class="form-control" formControlName="produtoNome" #termo (keyup)="atualizaProduto(termo.value)"  type="text" required>                           
+                    </div>                  
+                </div>   
+                <div >
+                    <ul class="list-group" style="position:absolute"  >
+                        <li  class="list-group-item" *ngFor="let prod of listaProduto " >
+                            <button class="btn-sem-cor" (click)="buscaProduto(prod)"  >{{prod.descricao}}</button>
+                        </li>
+                    </ul>  
+                </div>                    
+                
+            </div>  
+        </div>
+    </form>
+    
+    
+    <app-ficha-produto [idProduto]="idProduto"></app-ficha-produto>
+    
+</div>
+
+

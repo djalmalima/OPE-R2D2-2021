@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row box-cadastro">
+        <div class="col-12">
+            <h3 class="text-center">Inventário de produtos</h3>
+            <form class="mt-5" [formGroup]="formulario" >
+                                
+                
+                <div class="d-flex justify-content-center">                    
+                    <div class="row">
+                        <h5>Produtos </h5>                   
+                    </div>
+                </div>
+                
+                <div formArrayName="produtos" >
+                    <div *ngFor="let produto of produtos.controls; let i=index" [formGroupName]="i" > 
+                        <div class="d-flex justify-content-center ">
+                            <div class="row">   
+                                <div class="col-8"> 
+                                    <div class="form-group">      
+                                        <label class="label_produto" >Produto {{i+1}}</label>    
+                                        
+                                        <input formControlName="produtoNome" #termo (keyup)="atualizaProduto(termo.value , i)" [disabled]="produto.valid" placeholder="Descrição do produto ou ID" class="form-control" type="text" required>   
+                                        
+                                        <div *ngIf="produto.value.quantidade === ''">
+                                            <ul class="list-group" style="position:absolute"  >
+                                                <li  class="list-group-item" *ngFor="let prod of listaProduto " >
+                                                    <button class="btn-sem-cor" (click)="buscaProduto(prod, i)"  >{{prod.descricao}}</button>
+                                                </li>
+                                            </ul>  
+                                        </div>                                  
+                                    </div>
+                                </div>
+                                <div class="col-3"> 
+                                    <div class="form-group">      
+                                        <label class="label_produto" >Quantidade</label>       
+                                        <input formControlName="quantidade" class="form-control" placeholder="0" type="number" min="1" required>                                      
+                                    </div>
+                                </div>
+                                <div class="col-1"> 
+                                    <div class="form-group">                                
+                                        <button class="form-group btn btn-danger btn-delete "   (click)="removeServico(i)">x</button>                                    
+                                    </div>
+                                </div>                               
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                
+                <button type="submit"  class="btn btn-cadastro btn-lg" (click)="cadastrar()" [disabled]="carregarCrud"   >Gravar</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="load" *ngIf="carregarCrud"> <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+    <h6 > Carregando...</h6>
+</div>

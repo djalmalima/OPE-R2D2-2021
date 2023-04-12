@@ -32,6 +32,13 @@ public class ProdutoServico {
 		Produto obj = findById(id);
 		produtoRepositorio.delete(obj);
 	}
+	
+	public Produto inventario(Long id, Integer quantidade) {
+		Produto prod = produtoRepositorio.getOne(id);
+		prod.setQuantidade(quantidade);			
+		produtoRepositorio.save(prod);		
+		return prod;		
+	}
 
 	public Produto updateProduto(Long id, Produto produto) {
 		Produto user = produtoRepositorio.getOne(id);

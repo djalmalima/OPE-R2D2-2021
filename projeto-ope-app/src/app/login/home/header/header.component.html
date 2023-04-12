@@ -47,10 +47,21 @@
               Movimentação
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" >Entrada</a></li>
-              <li><a class="dropdown-item" >Saida</a></li>
-              <li><a class="dropdown-item" >Inventário</a></li>
+              <li><a class="dropdown-item" [routerLink]="['entradaproduto']"   >Entrada</a></li>
+              <li><a class="dropdown-item" [routerLink]="['saidaproduto']"  >Saida</a></li>
+              <li><a class="dropdown-item" [routerLink]="['inventario']">Inventário</a></li>
             </ul>
+          </div>
+        </li>
+
+        <li class="nav-item active">
+          <div class="dropdown">
+            <button class="btn btn1 dropdown-toggle" type="button" data-bs-toggle="dropdown" >
+              Relatórios
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" [routerLink]="['fichaestoque']"   >Movimentação Produto</a></li>
+              </ul>
           </div>
         </li>
 

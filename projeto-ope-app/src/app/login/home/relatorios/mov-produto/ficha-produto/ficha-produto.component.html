@@ -1,0 +1,67 @@
+<div class="container" style="margin: 10px 0px;"  *ngIf="idProduto != 0 &&  listaMovimentacao.length != 0">
+    <hr>
+    <div class="row home-tabela" style="text-align: -webkit-center;">
+        <div class="col-1">
+            <label for="">Id : <b>{{produto.id}} </b></label>
+        </div>
+        <div class="col-6">
+            <label for="">Descrição : <b>{{produto.descricao}} </b></label>
+        </div>
+        <div class="col">
+            <label for="">Categoria : <b>{{produto.categoria}} </b></label>
+        </div>   
+        <div class="col">
+          <label for="">Saldo Atual : <b>{{produto.quantidade}} </b></label>
+      </div>       
+       
+    </div>   
+
+  
+    <div class="legenda " > 
+      <p class="entrada borderTop"> Entradas</p>
+      <p class="saida">Saídas</p>
+      <p class="inventario">Inventário</p>
+    </div>
+
+    <div class="container" style="margin-top: 15px;" *ngFor="let movimentacao of listaMovimentacao">
+        <table class="table table-bordered">
+            <thead>
+              <tr [ngClass]="{'inventario': movimentacao.fornecedorId == 999999, 'entrada': movimentacao.quantidade >= 1, 'saida' : movimentacao.quantidade <= 0 }">
+              
+                <th scope="col-2" style="text-align: center;">Data Movimentacão</th>
+                <th scope="col"> Fornecedor </th>
+                <th scope="col">Tipo de Movimentação </th>
+                <th scope="col">Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" rowspan="2" style="text-align: center;">
+                    {{ movimentacao.dataMovimentacao | date :'dd-MM-yyyy' }}
+                    </th>
+                <td> {{ atualizaFornecedorNome(movimentacao.fornecedorId) }}  </td>
+                
+                <td>{{ movimentacao.movimentacaoTipo}}</td>
+                <td>{{ movimentacao.quantidade }}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>    
+</div>
+
+
+<div class="container sem-movimento" *ngIf="idProduto != 0 &&  listaMovimentacao.length == 0">
+  <div class="alert alert-danger" role="alert">
+    Item {{ produto.descricao}} sem movimento
+  </div>
+</div>
+
+
+<div class="container sem-movimento" style="z-index: -1;position: relative;"  *ngIf="idProduto == 0">
+  <div class="alert alert-warning" role="alert">
+    Nenhum produto selecionado
+  </div>
+</div>
+
+ 
